@@ -1,8 +1,5 @@
 package com.lqk.user.config;
 
-import com.lqk.springboot.webserver.WebServer;
-import com.lqk.springboot.webserver.impl.TomcatWebServer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,8 +9,5 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 public class MyConfig {
-    @Bean
-    public WebServer webServer() {
-        return new TomcatWebServer();
-    }
+
 }

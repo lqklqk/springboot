@@ -29,11 +29,11 @@
 <!--                </exclusion>-->
 <!--            </exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.jetty</groupId>-->
+<!--            <artifactId>jetty-server</artifactId>-->
+<!--            <version>9.4.46.v20220331</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>

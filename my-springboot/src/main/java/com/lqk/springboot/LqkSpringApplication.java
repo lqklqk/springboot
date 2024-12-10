@@ -1,7 +1,10 @@
 package com.lqk.springboot;
 
-import com.lqk.springboot.utils.WebServerUtil;
+import com.lqk.springboot.webserver.WebServer;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+
+import java.util.Map;
 
 /**
  * @author liqiankun
@@ -18,7 +21,23 @@ public class LqkSpringApplication {
         webApplicationContext.refresh();
         // 创建Tomcat
         // WebServerUtil.createTomcat(webApplicationContext);
-        WebServerUtil.createWebServer(webApplicationContext);
+        WebServer webServer = getWebServer(webApplicationContext);
+        webServer.onStart(webApplicationContext);
+    }
+
+
+    public static WebServer getWebServer(WebApplicationContext applicationContext){
+        Map<String, WebServer> beansOfType = applicationContext.getBeansOfType(WebServer.class);
+
+        if (beansOfType.isEmpty()) {
+            throw new NullPointerException();
+        }
+
+        if (beansOfType.size() > 1) {
+            throw new IllegalStateException();
+        }
+
+        return beansOfType.values().stream().findFirst().get();
     }
 
 }

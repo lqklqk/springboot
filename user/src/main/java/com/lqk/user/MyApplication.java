@@ -2,6 +2,8 @@ package com.lqk.user;
 
 import com.lqk.springboot.LqkSpringApplication;
 import com.lqk.springboot.annotation.LqkSpringBootApplication;
+import com.lqk.springboot.config.WebServerAutoConfiguration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author liqiankun
@@ -9,6 +11,7 @@ import com.lqk.springboot.annotation.LqkSpringBootApplication;
  * @description
  **/
 @LqkSpringBootApplication
+@Import(WebServerAutoConfiguration.class)
 public class MyApplication {
     public static void main(String[] args) {
         LqkSpringApplication.run(MyApplication.class);
