@@ -15,7 +15,7 @@ import java.util.ServiceLoader;
 public class LqkImportSelect implements DeferredImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        // 自动配置
+        // 自动配置，加载META-INF\services.com.lqk.springboot.config.AutoConfiguration文件中的全限定域名的配置类
         ServiceLoader<AutoConfiguration> loader = ServiceLoader.load(AutoConfiguration.class);
         List<String> list = new ArrayList<>();
         for (AutoConfiguration configuration : loader) {
